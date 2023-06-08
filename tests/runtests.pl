@@ -2803,6 +2803,8 @@ createrunners($numrunners);
 #   - if all runners are idle, exit the loop; we are done
 #   - if a runner has a response for us, process the response
 
+my $cntsignal;  # TESTING
+
 # run through each candidate test and execute it
 while () {
     # check the abort flag
@@ -2862,6 +2864,8 @@ while () {
     # one immediately. If all runners are busy, wait a fraction of a second
     # for one to finish so we can still loop around to check the abort flag.
     my $runnerwait = scalar(@runnersidle) && scalar(@runtests) ? 0 : 0.5;
+print STDERR "TESTING waiting indefinitely for test completion (" .scalar(%runnersrunning)." runners active)\n" if(!scalar(@runtests));
+if(!scalar(@runtests) && ++$cntsignal == 100) {kill 'USR1', $$;}; # TESTING
     my ($ridready, $riderror) = runnerar_ready($runnerwait);
     if($ridready && ! defined $runnersrunning{$ridready}) {
         # On Linux, a closed pipe still shows up as ready instead of error.
