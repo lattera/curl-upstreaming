@@ -12,6 +12,8 @@ on:
     - '**/*.m4'
     - '**/CMakeLists.txt'
     - 'lib/curl_config.h.cmake'
+    - 'scripts/cmp-config.pl'
+
   pull_request:
     branches:
     - master
@@ -20,6 +22,7 @@ on:
     - '**/*.m4'
     - '**/CMakeLists.txt'
     - 'lib/curl_config.h.cmake'
+    - 'scripts/cmp-config.pl'
 
 permissions: {}
 
