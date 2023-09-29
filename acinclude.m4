@@ -1469,7 +1469,7 @@ AS_HELP_STRING([--without-ca-bundle], [Don't use a default CA bundle]),
 AS_HELP_STRING([--with-ca-path=DIRECTORY],
 [Path to a directory containing CA certificates stored individually, with \
 their filenames in a hash format. This option can be used with the OpenSSL, \
-GnuTLS and mbedTLS backends. Refer to OpenSSL c_rehash for details. \
+GnuTLS, mbedTLS and wolfSSL backends. Refer to OpenSSL c_rehash for details. \
 (example: /etc/certificates)])
 AS_HELP_STRING([--without-ca-path], [Don't use a default CA path]),
   [
